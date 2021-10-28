@@ -6,7 +6,7 @@
 ### Sobre Graylog
 
 
-Graylog es una herramienta de código abierto utilizada para la agregación y gestión de registros (logs), se utiliza tambien para almacenar, analizar y enviar alertas de los registros recopilados. Con Graylog se pueden analizar registros estructurados y no estructurados utilizando ElasticSearch y MongoDB.  Esto incluye una variedad de sistemas, incluyendo sistemas Windows, sistemas Linux, diferentes aplicaciones y microservicios, etc.
+Graylog es una herramienta de código abierto, utilizada para la agregación y gestión de registros (logs), se utiliza tambien para almacenar, analizar y enviar alertas de los registros recopilados. Con Graylog se pueden analizar registros estructurados y no estructurados utilizando ElasticSearch y MongoDB.  Esto incluye el análisis de registos de una variedad de sistemas operativos (Windows, Linux, Mac, etc.), dispositivos de redes (Firewalls, Switchs, Routers, etc.), dispositivos para [IoT](https://www.graylog.org/post/improving-iot-security-with-log-management), asi como tambien la gestión de registros de diferentes aplicaciones y microservicios.
 
 **Graylog tiene los siguientes componentes**
 
@@ -64,12 +64,14 @@ sudo apt update
 sudo apt install -y elasticsearch-oss
 ```
 
-Editamos el archivo elasticsearch.yml:
+Editamos el archivo elasticsearch.yml:  
+
+*NOTA:* Existen muchos editores de texto en Linux, que van desde los mas poderosos como [VIM](https://www.youtube.com/watch?v=ggSyF1SVFr4) hasta los mas sencillos como [Nano](https://www.youtube.com/watch?v=Jf0ZJZJ8jlI), para efectos de esta guia utilizaremos `nano`
 
 ```
-sudo vim /etc/elasticsearch/elasticsearch.yml
+sudo nano /etc/elasticsearch/elasticsearch.yml
 ```
-Cambiamos el nombre del cluster a graylog: 
+Buscamos utilizando "ctrl+w" y cambiamos el nombre del cluster a graylog: 
 
 ```
 cluster.name: graylog
@@ -81,7 +83,8 @@ Agregamos la siguiente linea al final del archivo:
 action.auto_create_index: false
 ```
 
-Despues de editar el archivo de elasticsearch.yml, se inician los servicios:
+Despues de terminar de editar el archivo de elasticsearch.yml, guardamos los cambios con "ctrl+x" y confirmamos con "y"  
+Luego se inician los servicios de Elasticsearch:
 
 ```
 sudo systemctl daemon-reload
@@ -211,14 +214,14 @@ pwgen -N 1 -s 96
 ```
 La salida del comando anterior debe ser algo como:
 
-FFP3LhcsuSTMgfRvOx0JPcpDomJtrxovlSrbfMBG19owc13T8PZbYnH0nxyIfrTb0ANwCfH98uC8LPKFb6ZEAi55CvuZ2Aum  
+`FFP3LhcsuSTMgfRvOx0JPcpDomJtrxovlSrbfMBG19owc13T8PZbYnH0nxyIfrTb0ANwCfH98uC8LPKFb6ZEAi55CvuZ2Aum`  
 
-Editar el archivo de configuración de grylog para agregar el "secreto" creado anteriormente:
+Editamos el archivo de configuración de grylog para agregar el "secreto" creado anteriormente:
 
 ```
-sudo vim /etc/graylog/server/server.conf
+sudo nano /etc/graylog/server/server.conf
 ```
-Buscamos la linea donde este "password_secret = " y agregamos el secreto.
+Buscamos la linea donde este "password_secret = " y agregamos el secreto. 
 
 ```
 password_secret = FFP3LhcsuSTMgfRvOx0JPcpDomJtrxovlSrbfMBG19owc13T8PZbYnH0nxyIfrTb0ANwCfH98uC8LPKFb6ZEAi55CvuZ2Aum
@@ -254,12 +257,13 @@ a8b94ce6251a1529c657fb36e4e405cf772bdd895bb8e887a0696de71f6dbf75
 Editamos de nuevo el archivo de configuracion de graylog `/etc/graylog/server/server.conf` y colocamos el hash creado en el campo de `root_password_sha2 =`
 
 ```
-sudo vi /etc/graylog/server/server.conf
+sudo nano /etc/graylog/server/server.conf
 
 root_password_sha2 = a8b94ce6251a1529c657fb36e4e405cf772bdd895bb8e887a0696de71f6dbf75
+```
 
 En este mismo archivo agregamos la siguiente linea para que la administración WEB del servidor Graylog, nos responda desde cualquier direccion IP:
-```
+
 ```
 http_bind_address = 0.0.0.0:9000
 ```
@@ -289,13 +293,13 @@ sudo tail -f /var/log/graylog-server/server.log
 2021-10-27T20:57:56.088-04:00 INFO  [ServerBootstrap] Graylog server up and running.
 ```
 
-A este punto ya esta disponible el Servidor Greylog a traves de la siguiente URL:
+A este punto ya esta disponible el **Servidor Greylog** a traves de la siguiente URL:
 ```
 http://serverip_hostname:9000
 ```
 ![graylog1](lab03-images/graylog1.png)
 ---
-Updated:27/10/2021
+Updated:28/10/2021
 
 **Referencias**
 1. https://www.graylog.org/
