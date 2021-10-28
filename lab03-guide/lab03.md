@@ -1,7 +1,7 @@
 ![graylog](lab03-images/graylog.png)
 ---
 
-# Graylog Server on Ubuntu 20.04
+# Graylog Server en Ubuntu 20.04
 ## Guia de Instalación
 ### Sobre Graylog
 
@@ -14,7 +14,7 @@ Graylog es una herramienta de código abierto utilizada para la agregación y ge
 1. [MongoDB](https://www.mongodb.com/es)
 1. [ElasticSearch](https://www.elastic.co/es/what-is/elasticsearch)
 
-**Requisitos de hardware**
+**Requisitos de hardware**  
 la instalación de Grylog requiere de las siguientes caracteristicas minimas de hardware:
 
 -4 CPU Cores  
@@ -185,71 +185,91 @@ oct 26 23:51:28 Dojo systemd[1]: Started An object/document-oriented database.
 
 ## Paso 3 – Graylog
 
-Download and configure Graylog repository.***
+Graylog se descarga desde sus repositorios oficiales de la siguiente manera:
+
 ```
 wget https://packages.graylog2.org/repo/packages/graylog-4.1-repository_latest.deb
 ```
+despues de descargar el .deb, lo incluimos en nuestro repositorio local 
+
 ```
 sudo dpkg -i graylog-4.1-repository_latest.deb
 ```
-**Install Graylog server:**
+
+**Instalación de Graylog**
+
 ```
 sudo apt update
 ```
 ```
 sudo apt install -y graylog-server
 ```
-Generate a secret to secure user passwords using pwgen command
+Generamos un "secreto" que utilizaremos mas adelante en la configuración de Graylog.
 
 ```
 pwgen -N 1 -s 96
 ```
-The output should look like:
+La salida del comando anterior debe ser algo como:
 
-FFP3LhcsuSTMgfRvOx0JPcpDomJtrxovlSrbfMBG19owc13T8PZbYnH0nxyIfrTb0ANwCfH98uC8LPKFb6ZEAi55CvuZ2Aum
-Edit the graylog config file to add the secret we just created:
+FFP3LhcsuSTMgfRvOx0JPcpDomJtrxovlSrbfMBG19owc13T8PZbYnH0nxyIfrTb0ANwCfH98uC8LPKFb6ZEAi55CvuZ2Aum  
+
+Editar el archivo de configuración de grylog para agregar el "secreto" creado anteriormente:
+
 ```
 sudo vim /etc/graylog/server/server.conf
 ```
-Locate the password_secret = line and add the above created secret after it.
+Buscamos la linea donde este "password_secret = " y agregamos el secreto.
 
+```
 password_secret = FFP3LhcsuSTMgfRvOx0JPcpDomJtrxovlSrbfMBG19owc13T8PZbYnH0nxyIfrTb0ANwCfH98uC8LPKFb6ZEAi55CvuZ2Aum
+```
 
-Also add the following lines to the /etc/graylog/server/server.conf file
+Tambien, en el mismo archivo de configuración agregamos las siguientes lineas:
+
 ```
 rest_listen_uri = http://127.0.0.1:9000/api/
 web_listen_uri = http://127.0.0.1:9000/
 ```
-The next step is to create a hash sha256 pasword for the administrator. This is the password you will need to login to the web interface.
+
+El proximo paso es crear el password del administrador de Graylog. Este password se utilizara en la interfaz web para ingresar al sistema.
 
 ```
-echo -n Str0ngPassw0rd | sha256sum
+echo -n Str0ng_D0J0_Passw0rd | sha256sum
 ```
-Replace ‘Str0ngPassw0rd’ with a password of your choice.
+Se reemplaza ‘Str0ng_D0J0_Passw0rd’ con un password lo suficientemente seguro.
 
-Alternatively use the command below:
+Otra forma alternativa de crear el password es la siguiente:
 
 ```
 $ echo -n "Enter Password: " && head -1 </dev/stdin | tr -d '\n' | sha256sum | cut -d" " -f1
-```
-Enter Password: password
-You will get an output of this kind:
 
-e3c652f0ba0b4801205814f8b6bc49672c4c74e25b497770bb89b22cdeb4e951
-Edit the /etc/graylog/server/server.conf file then place the hash password at root_password_sha2 =
+Enter Password: password
+```
+
+Obtendremos una salida similar a esta:
+```
+a8b94ce6251a1529c657fb36e4e405cf772bdd895bb8e887a0696de71f6dbf75
+```
+
+Editamos de nuevo el archivo de configuracion de graylog `/etc/graylog/server/server.conf` y colocamos el hash creado en el campo de `root_password_sha2 =`
 
 ```
 sudo vi /etc/graylog/server/server.conf
-```
-root_password_sha2 = e3c652f0ba0b4801205814f8b6bc49672c4c74e25b497770bb89b22cdeb4e951
-Graylog is now configured and ready for use.
 
-**Start Graylog service:**
+root_password_sha2 = a8b94ce6251a1529c657fb36e4e405cf772bdd895bb8e887a0696de71f6dbf75
+
+En este mismo archivo agregamos la siguiente linea para que la administración WEB del servidor Graylog, nos responda desde cualquier direccion IP:
+```
+```
+http_bind_address = 0.0.0.0:9000
+```
+Luego de finalizar la edicion del archvivo de configuración, inicializamos los servicios.
+
 ```
 sudo systemctl daemon-reload
 sudo systemctl restart graylog-server
 sudo systemctl enable graylog-server
-
+```
 ```
 user@Dojo:~/greylog$ sudo systemctl daemon-reload
 user@Dojo:~/greylog$ sudo systemctl restart graylog-server
@@ -258,32 +278,25 @@ Synchronizing state of graylog-server.service with SysV service script with /lib
 Executing: /lib/systemd/systemd-sysv-install enable graylog-server
 Created symlink /etc/systemd/system/multi-user.target.wants/graylog-server.service → /lib/systemd/system/graylog-server.service.
 ```
-You can check if the service has started successfully from the logs:
-
+Se puede saber si los servicios se inicializaron satisfactoriamente revisando los logs de la siguiente manera:
 ```
 sudo tail -f /var/log/graylog-server/server.log
+
+2021-10-27T20:57:55.985-04:00 INFO  [JerseyService] Started REST API at <0.0.0.0:9000>
+2021-10-27T20:57:55.990-04:00 INFO  [ServerBootstrap] Services started, startup times in ms: {JobSchedulerService [RUNNING]=630, PrometheusExporter [RUNNING]=631, OutputSetupService [RUNNING]=636, BufferSynchronizerService [RUNNING]=638, LocalKafkaJournal [RUNNING]=649, LocalKafkaMessageQueueWriter [RUNNING]=651, GracefulShutdownService [RUNNING]=654, UrlWhitelistService [RUNNING]=664, ConfigurationEtagService [RUNNING]=670, EtagService [RUNNING]=680, UserSessionTerminationService [RUNNING]=687, LocalKafkaMessageQueueReader [RUNNING]=697, InputSetupService [RUNNING]=712, MongoDBProcessingStatusRecorderService [RUNNING]=716, LookupTableService [RUNNING]=811, StreamCacheService [RUNNING]=818, PeriodicalsService [RUNNING]=1042, JerseyService [RUNNING]=12078}
+2021-10-27T20:57:56.002-04:00 INFO  [ServiceManagerListener] Services are healthy
+2021-10-27T20:57:56.023-04:00 INFO  [InputSetupService] Triggering launching persisted inputs, node transitioned from Uninitialized [LB:DEAD] to Running [LB:ALIVE]
+2021-10-27T20:57:56.088-04:00 INFO  [ServerBootstrap] Graylog server up and running.
 ```
 
-
-Graylog server up and running.
-If you would like to Graylog interface with Server IP Address and port, then set http_bind_address to the public host name or a public IP address of the machine you can connect to
-
-```
-http_bind_address = 0.0.0.0:9000
-```
-And restart graylog-server service
-
-```
-sudo systemctl restart graylog-server
-```
-You can then access graylog web dashboard on:
-
+A este punto ya esta disponible el Servidor Greylog a traves de la siguiente URL:
 ```
 http://serverip_hostname:9000
 ```
-Updated:12/09/2021
+![graylog1](lab03-images/graylog1.png)
+---
+Updated:27/10/2021
 
-Referencias
+**Referencias**
 1. https://www.graylog.org/
-
 1. https://computingforgeeks.com/install-graylog-on-ubuntu-with-lets-encrypt/#comments
