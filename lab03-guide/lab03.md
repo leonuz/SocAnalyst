@@ -15,7 +15,7 @@ Graylog es una herramienta de código abierto, utilizada para la agregación y g
 1. [ElasticSearch](https://www.elastic.co/es/what-is/elasticsearch)
 
 **Requisitos de hardware**  
-la instalación de Grylog requiere de las siguientes caracteristicas minimas de hardware:
+La instalación de Greylog requiere de las siguientes caracteristicas mínimas de hardware:
 
 -4 CPU Cores  
 -8 GB RAM  
@@ -45,15 +45,18 @@ OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
 OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sharing)
 ```
 
-## Paso 1 – Elasticsearch 
-Elasticsearch es un motor de analítica y análisis distribuido, gratuito y abierto para todos los tipos de datos, incluidos textuales, numéricos, geoespaciales, estructurados y no estructurados. Mas Info [aqui](https://www.elastic.co/es/what-is/elasticsearch)
+## Paso 1 – Elasticsearch  
 
-**Instalación de Elasticsearch**
+Elasticsearch es un motor de analítica y análisis distribuido, gratuito y abierto para todos los tipos de datos, incluidos textuales, numéricos, geoespaciales, estructurados y no estructurados. Mas Info [aqui](https://www.elastic.co/es/what-is/elasticsearch)  
+
+**Instalación de Elasticsearch**  
+
 Para comenzar la instalación lo primero es descargar la llave de autenticacion GPG del repositorio de elsticksearch e instalarla:  
+
 ```
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 ```
-Agregaamos el repositorio de elasticsearch a las sources.list de Ubuntu:
+Agregamos el repositorio de elasticsearch a las sources.list de Ubuntu:
 
 ```
 echo "deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
@@ -66,12 +69,12 @@ sudo apt install -y elasticsearch-oss
 
 Editamos el archivo elasticsearch.yml:  
 
-*NOTA:* Existen muchos editores de texto en Linux, que van desde los mas poderosos como [vim](https://www.youtube.com/watch?v=ggSyF1SVFr4) hasta los mas sencillos como [nano](https://www.youtube.com/watch?v=Jf0ZJZJ8jlI), para efectos de esta guia utilizaremos `nano`
+*NOTA:* Existen muchos editores de texto en Linux, que van desde los mas poderosos como [vim](https://www.youtube.com/watch?v=ggSyF1SVFr4) hasta los mas sencillos como [nano](https://www.youtube.com/watch?v=Jf0ZJZJ8jlI), para efectos de esta guia utilizaremos `nano`  
 
 ```
 sudo nano /etc/elasticsearch/elasticsearch.yml
 ```
-Buscamos utilizando "ctrl+w" y cambiamos el nombre del cluster a graylog: 
+Buscamos utilizando `ctrl+w` y cambiamos el nombre del cluster a graylog: 
 
 ```
 cluster.name: graylog
@@ -84,7 +87,7 @@ action.auto_create_index: false
 ```
 
 Despues de terminar de editar el archivo de elasticsearch.yml, guardamos los cambios con `ctrl+x` y confirmamos con `y`  
-Luego se inician los servicios de Elasticsearch:
+Luego se inician los servicios de Elasticsearch con los siguientes camandos:
 
 ```
 sudo systemctl daemon-reload
@@ -148,9 +151,10 @@ user@Dojo:~/greylog$ curl -X GET http://localhost:9200
 }
 ```
 ## Paso 2 – MongoDB  
+
 MongoDB es una base de datos de documentos que ofrece una gran escalabilidad y flexibilidad, y un modelo de consultas e indexación avanzado. Mas Info [aqui](https://www.mongodb.com/es/what-is-mongodb)  
 
-**Instalación de MongoDB**
+**Instalación de MongoDB**  
 
 MongoDB se descarga y se instala directamente de las fuentes actualizadas de los repositorios de Ubuntu
 
@@ -161,7 +165,7 @@ sudo apt update
 sudo apt install -y mongodb-server
 ```
 
-Luego de finalizada la instalación, se inician los servicios:
+Luego de finalizada la instalación, se inician los servicios de la siguiente manera:
 
 ```
 sudo systemctl start mongodb
@@ -196,12 +200,12 @@ Graylog se descarga desde sus repositorios oficiales de la siguiente manera:
 ```
 wget https://packages.graylog2.org/repo/packages/graylog-4.1-repository_latest.deb
 ```
-despues de descargar el `.deb`, lo incluimos en nuestro repositorio local: 
+Despues de descargar el `.deb`, lo incluimos en nuestro repositorio local: 
 
 ```
 sudo dpkg -i graylog-4.1-repository_latest.deb
 ```
-y luego se instala el `.deb` de la siguiente manera:
+Y luego se instala el `.deb` de la siguiente manera:
 
 ```
 sudo apt update
@@ -209,7 +213,8 @@ sudo apt update
 ```
 sudo apt install -y graylog-server
 ```
-Una vez que instalamos el servidor Greylog, el paso siguiente es configurarlo de manera correcta, para esto necesitamos generar un "secreto" que utilizaremos mas adelante en la configuración de Graylog.
+Una vez que instalamos el servidor Greylog, el paso siguiente es configurarlo de manera correcta, para esto necesitamos generar un "secreto" que utilizaremos mas adelante en la configuración de Graylog.  
+Este secreto lo podemos generar de la siguiente manera: 
 
 ```
 pwgen -N 1 -s 96
@@ -218,7 +223,7 @@ La salida del comando anterior debe ser algo como:
 
 `FFP3LhcsuSTMgfRvOx0JPcpDomJtrxovlSrbfMBG19owc13T8PZbYnH0nxyIfrTb0ANwCfH98uC8LPKFb6ZEAi55CvuZ2Aum`  
 
-Editamos el archivo de configuración de grylog para agregar el "secreto" creado anteriormente:
+Editamos el archivo de configuración de greylog para agregar el "secreto" creado anteriormente:
 
 ```
 sudo nano /etc/graylog/server/server.conf
@@ -229,7 +234,7 @@ Buscamos la linea donde este "password_secret = " y agregamos el secreto.
 password_secret = FFP3LhcsuSTMgfRvOx0JPcpDomJtrxovlSrbfMBG19owc13T8PZbYnH0nxyIfrTb0ANwCfH98uC8LPKFb6ZEAi55CvuZ2Aum
 ```
 
-Tambien, en el mismo archivo de configuración agregamos las siguientes lineas:
+Tambien, en el mismo archivo de configuración, agregamos las siguientes lineas:
 
 ```
 rest_listen_uri = http://127.0.0.1:9000/api/
@@ -237,11 +242,11 @@ web_listen_uri = http://127.0.0.1:9000/
 ```
 
 El proximo paso es crear el password del administrador de Graylog. Este password se utilizara en la interfaz web para ingresar al sistema.
-
+Hay varias formas de [crear un password que sea lo suficientemete seguro](https://support.google.com/accounts/answer/32040?hl=en), aqui mostramos dos de ellas:   
 ```
 echo -n Str0ng_D0J0_Passw0rd | sha256sum
 ```
-Se reemplaza ‘Str0ng_D0J0_Passw0rd’ con un password lo suficientemente seguro.
+Se debe reemplazar la cadena ‘Str0ng_D0J0_Passw0rd’ con un password de su preferencia pero es recomendable que sea lo suficientemente seguro.
 
 Otra forma alternativa de crear el password es la siguiente:
 
@@ -269,7 +274,7 @@ En este mismo archivo agregamos la siguiente linea para que la administración W
 ```
 http_bind_address = 0.0.0.0:9000
 ```
-Luego de finalizar la edicion del archvivo de configuración, inicializamos los servicios.
+Luego de finalizar la edicion del archvivo de configuración, inicializamos los servicios de la siguiente manera:
 
 ```
 sudo systemctl daemon-reload
@@ -295,10 +300,12 @@ sudo tail -f /var/log/graylog-server/server.log
 2021-10-27T20:57:56.088-04:00 INFO  [ServerBootstrap] Graylog server up and running.
 ```
 
-A este punto ya esta disponible el **Servidor Greylog** a traves de la siguiente URL:
+si hemos alcanzado este punto, ya tenemos disponible el **Servidor Greylog**, y podremos acceder a traves de la siguiente URL:
 ```
-http://serverip_hostname:9000
+http://serverip:9000
 ```
+donde, **serverip**, es la dirección IP de la maquina de Ubuntu donde instalamos Greylog.  
+
 ![graylog1](lab03-images/graylog1.png)
 ---
 Updated:28/10/2021
