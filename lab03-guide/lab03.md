@@ -1,4 +1,3 @@
-``````
 ![graylog](img/graylog.png)
 ---
 
@@ -291,4 +290,3 @@ Referencias
 1. https://www.graylog.org/
 
 1. https://computingforgeeks.com/install-graylog-on-ubuntu-with-lets-encrypt/#comments
-``````
