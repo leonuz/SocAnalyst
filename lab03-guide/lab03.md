@@ -46,19 +46,19 @@ OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sha
 ```
 
 ## Paso 1 – Elasticsearch 
+Elasticsearch es un motor de analítica y análisis distribuido, gratuito y abierto para todos los tipos de datos, incluidos textuales, numéricos, geoespaciales, estructurados y no estructurados. Mas Info [aqui](https://www.elastic.co/es/what-is/elasticsearch)
 
-Descargar la llave de autenticacion GPG del repositorio de elsticksearch e instalarla:  
+**Instalación de Elasticsearch**
+Para comenzar la instalación lo primero es descargar la llave de autenticacion GPG del repositorio de elsticksearch e instalarla:  
 ```
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 ```
-
-Agregar el repositorio de elasticsearch a las sources.list de Ubuntu:
+Agregaamos el repositorio de elasticsearch a las sources.list de Ubuntu:
 
 ```
 echo "deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
 
 ```
-**Instalación de Elasticsearch**
 ```
 sudo apt update
 sudo apt install -y elasticsearch-oss
@@ -66,7 +66,7 @@ sudo apt install -y elasticsearch-oss
 
 Editamos el archivo elasticsearch.yml:  
 
-*NOTA:* Existen muchos editores de texto en Linux, que van desde los mas poderosos como [VIM](https://www.youtube.com/watch?v=ggSyF1SVFr4) hasta los mas sencillos como [Nano](https://www.youtube.com/watch?v=Jf0ZJZJ8jlI), para efectos de esta guia utilizaremos `nano`
+*NOTA:* Existen muchos editores de texto en Linux, que van desde los mas poderosos como [vim](https://www.youtube.com/watch?v=ggSyF1SVFr4) hasta los mas sencillos como [nano](https://www.youtube.com/watch?v=Jf0ZJZJ8jlI), para efectos de esta guia utilizaremos `nano`
 
 ```
 sudo nano /etc/elasticsearch/elasticsearch.yml
@@ -83,7 +83,7 @@ Agregamos la siguiente linea al final del archivo:
 action.auto_create_index: false
 ```
 
-Despues de terminar de editar el archivo de elasticsearch.yml, guardamos los cambios con "ctrl+x" y confirmamos con "y"  
+Despues de terminar de editar el archivo de elasticsearch.yml, guardamos los cambios con `ctrl+x` y confirmamos con `y`  
 Luego se inician los servicios de Elasticsearch:
 
 ```
@@ -148,10 +148,11 @@ user@Dojo:~/greylog$ curl -X GET http://localhost:9200
 }
 ```
 ## Paso 2 – MongoDB  
+MongoDB es una base de datos de documentos que ofrece una gran escalabilidad y flexibilidad, y un modelo de consultas e indexación avanzado. Mas Info [aqui](https://www.mongodb.com/es/what-is-mongodb)  
 
 **Instalación de MongoDB**
 
-MongoDB se descarga y se instala directamente de las fuentes de los repositorios de Ubuntu
+MongoDB se descarga y se instala directamente de las fuentes actualizadas de los repositorios de Ubuntu
 
 ```
 sudo apt update
@@ -188,18 +189,19 @@ oct 26 23:51:28 Dojo systemd[1]: Started An object/document-oriented database.
 
 ## Paso 3 – Graylog
 
+**Instalación de Graylog**
+
 Graylog se descarga desde sus repositorios oficiales de la siguiente manera:
 
 ```
 wget https://packages.graylog2.org/repo/packages/graylog-4.1-repository_latest.deb
 ```
-despues de descargar el .deb, lo incluimos en nuestro repositorio local 
+despues de descargar el `.deb`, lo incluimos en nuestro repositorio local: 
 
 ```
 sudo dpkg -i graylog-4.1-repository_latest.deb
 ```
-
-**Instalación de Graylog**
+y luego se instala el `.deb` de la siguiente manera:
 
 ```
 sudo apt update
@@ -207,7 +209,7 @@ sudo apt update
 ```
 sudo apt install -y graylog-server
 ```
-Generamos un "secreto" que utilizaremos mas adelante en la configuración de Graylog.
+Una vez que instalamos el servidor Greylog, el paso siguiente es configurarlo de manera correcta, para esto necesitamos generar un "secreto" que utilizaremos mas adelante en la configuración de Graylog.
 
 ```
 pwgen -N 1 -s 96
