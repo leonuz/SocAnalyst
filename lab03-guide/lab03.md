@@ -1,9 +1,9 @@
-![graylog](img/graylog.png)
+![graylog](lab03-images/graylog.png)
 ---
 
-#Graylog Server on Ubuntu 20.04
-##Guia de Instalación
-###Sobre Graylog
+# Graylog Server on Ubuntu 20.04
+## Guia de Instalación
+### Sobre Graylog
 
 
 Graylog es una herramienta de código abierto utilizada para la agregación y gestión de registros (logs), se utiliza tambien para almacenar, analizar y enviar alertas de los registros recopilados. Con Graylog se pueden analizar registros estructurados y no estructurados utilizando ElasticSearch y MongoDB.  Esto incluye una variedad de sistemas, incluyendo sistemas Windows, sistemas Linux, diferentes aplicaciones y microservicios, etc.
@@ -21,9 +21,9 @@ la instalación de Grylog requiere de las siguientes caracteristicas minimas de 
 -8 GB RAM  
 -Ubuntu 20.04 LTS actualizado.  
 
-##Instalación##
+### Instalación
 
-###Prerequisitos de software  
+### Prerequisitos de software  
 
 La instalación de Graylog requiere de una version de Java 8 o superior. Se puede utilizar openJDk 11
 
@@ -36,7 +36,7 @@ sudo apt install -y apt-transport-https openjdk-11-jre-headless uuid-runtime pwg
 Se puede verificar la version de Java recien instalada utilizando el siguiente comando:
 
 ```
-user@Dojo:~/greylog$java -version
+java -version
 ```
 ```
 user@Dojo:~/greylog$ java -version
@@ -45,7 +45,7 @@ OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
 OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sharing)
 ```
 
-##Paso 1 – Elasticsearch 
+## Paso 1 – Elasticsearch 
 
 Descargar la llave de autenticacion GPG del repositorio de elsticksearch e instalarla:  
 ```
@@ -58,7 +58,7 @@ Agregar el repositorio de elasticsearch a las sources.list de Ubuntu:
 echo "deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
 
 ```
-**Instalar Elasticsearch**
+**Instalación de Elasticsearch**
 ```
 sudo apt update
 sudo apt install -y elasticsearch-oss
@@ -144,7 +144,7 @@ user@Dojo:~/greylog$ curl -X GET http://localhost:9200
   "tagline" : "You Know, for Search"
 }
 ```
-**Paso 2 – MongoDB  
+## Paso 2 – MongoDB  
 
 **Instalación de MongoDB**
 
@@ -183,8 +183,7 @@ user@Dojo:~/greylog$ sudo systemctl status mongodb
 oct 26 23:51:28 Dojo systemd[1]: Started An object/document-oriented database.
 ```
 
-**Paso 3 – Graylog
-
+## Paso 3 – Graylog
 
 Download and configure Graylog repository.***
 ```
@@ -259,8 +258,6 @@ Synchronizing state of graylog-server.service with SysV service script with /lib
 Executing: /lib/systemd/systemd-sysv-install enable graylog-server
 Created symlink /etc/systemd/system/multi-user.target.wants/graylog-server.service → /lib/systemd/system/graylog-server.service.
 ```
-
-
 You can check if the service has started successfully from the logs:
 
 ```
