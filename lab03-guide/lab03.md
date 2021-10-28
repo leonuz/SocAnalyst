@@ -300,3 +300,4 @@ Updated:27/10/2021
 **Referencias**
 1. https://www.graylog.org/
 1. https://computingforgeeks.com/install-graylog-on-ubuntu-with-lets-encrypt/#comments
+2. https://docs.graylog.org/docs/ubuntu
