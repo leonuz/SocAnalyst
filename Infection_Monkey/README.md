@@ -18,3 +18,8 @@ El objetivo de este laboratorio es demostrar:
 2 - Demostrar cómo utilizar infection-monkey  
 
 3 - Mostrar lo que podemos hacer con infection-monkey  
+
+# Instalación de Infection Monkey
+Desde la web oficial de Infection Monkey [Infection Monkey Download]( https://www.guardicore.com/infectionmonkey/). Llenamos el formulario para que nos envíen por email el sitio de descarga del programa, poniendo nuestro email, nombre y para el tipo de sistema al que va dirigida la aplicación, si es Windows o Linux.
+![Link_download](img/link.png)  
+
