@@ -1,7 +1,7 @@
 ![InfectionMonkey](img/im.png)
 
 # Emulación de adversarios utilizando Infection Monkey  
----
+
 # ¿Qué es Infection Monkey?  
 Infection Monkey es una herramienta de pruebas de ciberseguridad, capaz de deambular por las partes más profundas del centro de datos. Hará girar una máquina virtual infectada dentro de partes aleatorias de su centro de datos, para probar posibles fallos de seguridad. Se comporta más como un hacker aleatorio que como un escáner de vulnerabilidades. El Mono intenta moverse por el centro de datos aprovechando diferentes métodos de movimiento lateral típicos de un atacante real que ya ha comprometido un sistema interno. Cuando llega con éxito a otra máquina, significa que hay un fallo de seguridad que debe ser solucionado.  
 
@@ -22,4 +22,23 @@ El objetivo de este laboratorio es demostrar:
 # Instalación de Infection Monkey
 Desde la web oficial de Infection Monkey [Infection Monkey Download]( https://www.guardicore.com/infectionmonkey/). Llenamos el formulario para que nos envíen por email el sitio de descarga del programa, poniendo nuestro email, nombre y para el tipo de sistema al que va dirigida la aplicación, si es Windows o Linux.
 ![Link_download](img/link.png)  
+
+
+Una vez recibido el correo electrónico, procederemos a la descarga del programa. Esta descarga es un archivo en formato [AppImage](https://appimage.org/). Una AppImage es un paquete independiente de la distribución y autoejecutable que contiene una aplicación y todo lo que puede necesitar para ejecutarse.
+
+El paquete AppImage de Infection Monkey debería ejecutarse en la mayoría de las distribuciones modernas de Linux que tienen FUSE instalado, pero las que hemos probado son:
+- BlackArch 2020.12.01
+- Kali 2021.2
+- Parrot 4.11
+- Rocky 8
+- openSUSE Leap 15.3
+- Ubuntu Bionic 18.04
+- Ubuntu Focal 20.04
+- Ubuntu Hirsute 21.04
+
+Mientras de descarga el paquete, procedemos a actualizar nuestro sistema
+```
+sudo apt update
+sudo apt upgrade
+```
 
