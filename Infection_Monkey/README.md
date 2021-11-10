@@ -1,6 +1,6 @@
 ![InfectionMonkey](img/im1.png)
 
-# Emulación de adversarios
+# Emulación de Adversarios
 # Infection Monkey   
 
 # ¿Qué es Infection Monkey?  
@@ -70,7 +70,7 @@ https://<DIRECCION_IP>:5000
 
 # Configuración de Infection Monkey  
 ## Paso 1 - Login por Primera Vez  
-La primera vez que inicies **Monkey Island** (el servidor de C&C de Infection Monkey), se te pedirá que crees una cuenta y asegures tu isla. Tras la creación de la cuenta, el servidor solo será accesible a través de las credenciales que hayas introducido.  
+La primera vez que iniciamos **Monkey Island** (el servidor de C&C de Infection Monkey), pedirá que se cree una cuenta (login y password). Tras la creación de la cuenta, el servidor solo será accesible a través de las credenciales que se hayan introducido. Para realizar un reset de la cuenta es necesario seguir estos [pasos](https://staging-infectionmonkey.temp312.kinsta.cloud/docs/faq/#resetenable-the-monkey-island-password) 
 
 ![login](img/login.png)  
 
@@ -79,23 +79,50 @@ Una vez iniciada la sesión en Monkey Island procederemos a configurarlo para in
 
 ![start](img/start.png)  
 
-## Paso 3 - Panel de Configuración  
+## Paso 3 - Configuration Panel (Panel de Configuración)    
 En el panel de configuración veremos diferentes pestañas de configuración, pero una de las más importantes es la de los ataques que se van a ejecutar. Pulsando sobre ellas podemos activarlas o desactivarlas.  
 
 ![config](img/config.png)  
 
-## Paso 4 - Panel de Red  
-En esta sección podemos elegir las direcciones IP que queremos excluir, atacar y analizar. Sólo tenemos que añadir la dirección IP correspondiente, guardar los cambios y seguir configurando.  
+## Paso 4 - Network Panel (Panel de Red)  
+En esta sección podemos elegir las direcciones IP que queremos excluir, atacar y analizar. Aquí puede controlar múltiples ajustes importantes, como:
+
+- Profundidad de propagación de la red - ¿Cuántos saltos desde la máquina base se propagará Infection Monkey?
+- Escaneo de la red local - ¿Debe Infection Monkey intentar atacar cualquier máquina en su subred?
+- Lista de IP/subredes del escáner - ¿Qué rangos de IP específicos debe intentar atacar Infection Monkey?
 
 ![red](img/red.png)  
 
 ## Paso 5 - Guardar siempre los cambios  
 Al final de cada sección habrá el siguiente menú en el que está la opción de guardar.  
 
-![save](img/save.png  
+![save](img/save.png)  
 
-## Paso 6 - 
+## Paso 6 - Internal Panel (Panel Interno)  
+Aquí podemos añadir los puertos que queremos escanear en las máquinas víctimas.  
 
+![ports](img/ports.png)  
+
+## Paso 7 - Exploit Panel (Panel de Explotación)  
+En esta sección podemos configurar los diccionarios con usuarios y contraseñas para intentar acceder al sistema que estamos atacando o analizando.
+
+![credentials](img/credentials.png)  
+
+Tambien es esta misma sección nos conseguimos con los "Exploiter", ques on un conjunto de exploits comunes que se pueden utilizar para atacar o analizar los sistemas.
+
+![exploit](img/exploit.png)  
+
+# Inicializar Infection Monkey  
+
+Vamos al panel de la izquierda y hacemos click en "Run Mokey" y luego en el panel principal seleccionamos la opción 1 de la isla, "From Island", esperamos unos minutos y el programa comenzará a ejecutarse.  
+
+[run](img/run.png)  
+
+# Resultados
+
+>
+> MONTANDO LAB
+> 
 
 
 
