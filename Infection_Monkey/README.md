@@ -14,13 +14,11 @@ El objetivo de este laboratorio es aprender a instalar, configurar y utilizar la
 El objetivo de este laboratorio es:  
 
 1 - Aprender a realizar un despliegue exitoso de Infection Monkey  
-
 2 - Aprender a configurar y utilizar Infection Monkey  
-
 3 - Enseñar lo que es posible hacer con Infection Monkey  
 
 # Instalación de Infection Monkey
-Vamos a la web oficial de Infection Monkey para descargar el programa [Download Infection Monkey]( https://www.guardicore.com/infectionmonkey/). Antes de descargar nos pide llenamos un formulario para que nos envíen por email el sitio de descarga del programa.  
+Vamos a la web oficial de Infection Monkey para solicitar la descargar del programa [Download Infection Monkey]( https://www.guardicore.com/infectionmonkey/). En este sitio nos pide llenamos un formulario para que nos envíen por email el sitio de descarga del programa.  
 
 ![Link_download](img/link1.png)  
 
@@ -59,4 +57,11 @@ https://<DIRECCION_IP>:5000
 2 - Aceptamos el riesgo y continuamos.  
 
 ![cert_warning](img/warning.png)  
+
+# Configuración  
+# Login por Primera Vez  
+La primera vez que inicies **Monkey Island** (el servidor de C&C de Infection Monkey), se te pedirá que crees una cuenta y asegures tu isla. Tras la creación de la cuenta, el servidor solo será accesible a través de las credenciales que hayas introducido.  
+
+![login](img/login.png)  
+
 
