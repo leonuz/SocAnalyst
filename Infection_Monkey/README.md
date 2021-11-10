@@ -4,9 +4,11 @@
 # Infection Monkey   
 
 # ¿Qué es Infection Monkey?  
-**Infection Monkey** es una herramienta de pruebas de ciberseguridad, capaz de adentrarse por las partes más profundas del centro de datos. Se instala en una máquina virtual en alguna parte del centro de datos, y desde alli, intentara probar posibles fallos de seguridad. Se comporta más como un hacker que como un escáner de vulnerabilidades. Infection Monkey intentara recorrer el centro de datos aprovechando diferentes tecnicas de movimiento lateral típicos de un atacante real que ya ha comprometido un sistema interno. Cuando llega con éxito a otra máquina, significa que hay un fallo de seguridad que debe ser solucionado.  
+**Infection Monkey** es una herramienta de pruebas de ciberseguridad, es capaz de adentrarse en el centro de datos en busca de vulnerabilidades y explotarlas. Se instala en una máquina virtual en alguna parte del centro de datos, y desde alli, intentara probar posibles fallos de seguridad. Se comporta más como un hacker que como un escáner de vulnerabilidades. Infection Monkey intentara recorrer el centro de datos aprovechando diferentes tecnicas de movimiento lateral típicos de un atacante real que ya ha comprometido un sistema interno. Cuando logra vulnerar con éxito a una máquina, significará que hay un fallo de seguridad que debe ser solucionado.  
 
-El funcionamiento de alto nivel de Infection Monkey es sencillo. Está diseñado para enumerar la red, comprobar si hay puertos abiertos y tomar las huellas digitales (fingerprints) de las máquinas, utilizando múltiples protocolos de red. Después de detectar las máquinas accesibles, intentara atacar a cada una de ellas utilizando una variedad de métodos que incluyen el bruteforce de contraseñas hasta exploits básicos. Infection Monkey es un trabajo en curso y aún queda camino por recorrer para aprovechar al máximo sus ventajas.  
+El funcionamiento de Infection Monkey es sencillo. Está diseñado para enumerar la red, comprobar si hay puertos abiertos y tomar las huellas digitales (fingerprint) de las máquinas, utilizando múltiples protocolos de red. Después de detectar las máquinas accesibles, intentara atacar a cada una de ellas utilizando una variedad de métodos que incluyen, entre otros, el bruteforce de contraseñas y la ejecución de exploits conocidos. 
+
+Infection Monkey es un trabajo en curso y aún queda camino por recorrer para aprovechar al máximo sus ventajas.  
 
 # Componentes de Infection Monkey
 Infection Monkey posee dos componentes principales:  
@@ -103,19 +105,19 @@ Al final de cada sección habrá el siguiente menú en el que está la opción d
 El Internal Panel posee las pestañas para configuraciones mas granulares tanto del servidor Monkey Island, como del Agente Monkey.  
 A continuación explicaremos las mas importantes:  
 
-### Internal Panel/Network  
-Aquí podemos controlar diferentes parametros de la enumeración, como TCP scan interval, TCP scan timeout, Ping scan timeout, ademas de añadir los puertos TCP que queremos escanear en las máquinas víctimas. Tambien es posible indicar los difererentes numeros de puertos HTTP para realizar enumeración web. 
-
-![ports](img/ports.png)  
-
-### Internal Panel/Monkey  
-Configuramos el número máximo de máquinas que el Agente Monkey puede escanear y tratar de infectar.
-
-### Internal Panel/Island Server
-Lista de C&C/interfaces de red con los que se intentara comunicar el agente Monkey.
-
-### Internal Panel/Exploit
-Configuración de los exploits precargados de Infection Monkey.
+>### Internal Panel/Network  
+>Aquí podemos controlar diferentes parametros de la enumeración, como TCP scan interval, TCP scan timeout, Ping scan timeout, ademas de añadir los puertos TCP que queremos >escanear en las máquinas víctimas. Tambien es posible indicar los difererentes numeros de puertos HTTP para realizar enumeración web. 
+>
+>![ports](img/ports.png)  
+>
+>### Internal Panel/Monkey  
+>Configuramos el número máximo de máquinas que el Agente Monkey puede escanear y tratar de infectar.
+>
+>### Internal Panel/Island Server
+>Lista de C&C/interfaces de red con los que se intentara comunicar el agente Monkey.
+>
+>### Internal Panel/Exploit
+>Configuración de los exploits precargados de Infection Monkey.
 
 ## Paso 7 - Exploit Panel (Panel de Explotación)  
 En esta sección podemos configurar los diccionarios con usuarios y contraseñas para intentar acceder al sistema que estamos atacando o analizando.
