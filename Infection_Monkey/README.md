@@ -78,7 +78,7 @@ Para realizar un reset de la cuenta es necesario seguir estos [pasos](https://st
 ![login](img/login.png)  
 
 ## Paso 2 - Comienzo de Configuración
-Una vez iniciada la sesión en Monkey Island procederemos a configurarlo para iniciar la recolección.  
+Una vez iniciada la sesión en Monkey Island procederemos a configurarlo con los parametros del ataque.  
 
 ![start](img/start.png)  
 
