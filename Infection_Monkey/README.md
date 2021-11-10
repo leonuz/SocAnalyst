@@ -30,7 +30,7 @@ El objetivo de este laboratorio es:
 
 
 # Instalación de Infection Monkey
-Vamos a la web oficial de Infection Monkey para solicitar la descargar del programa [Download Infection Monkey]( https://www.guardicore.com/infectionmonkey/). En este sitio nos pide llenamos un formulario para que nos envíen por email el link de descarga del programa.  
+Vamos a la web oficial de Infection Monkey para solicitar la descargar del programa [Download Infection Monkey]( https://www.guardicore.com/infectionmonkey/). En este sitio nos pide llenar un formulario para que envíen por email el link de descarga del programa.  
 
 ![Link_download](img/link1.png)  
 
