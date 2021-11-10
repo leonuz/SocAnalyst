@@ -1,4 +1,4 @@
-![InfectionMonkey](img/im.png)
+![InfectionMonkey](img/im1.png)
 
 # Emulación de adversarios utilizando Infection Monkey  
 
@@ -22,7 +22,7 @@ El objetivo de este laboratorio es:
 # Instalación de Infection Monkey
 Vamos a la web oficial de Infection Monkey para descargar el programa [Download Infection Monkey]( https://www.guardicore.com/infectionmonkey/). Antes de descargar nos pide llenamos un formulario para que nos envíen por email el sitio de descarga del programa.  
 
-![Link_download](img/link.png)  
+![Link_download](img/link1.png)  
 
 Una vez recibido el correo electrónico, procederemos a la descarga del programa. Esta descarga es un archivo en formato [AppImage](https://appimage.org/). Una AppImage es un paquete independiente de la distribución y autoejecutable, que contiene una aplicación y todo lo que puede necesitar para ejecutarse.
 
