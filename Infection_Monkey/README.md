@@ -70,7 +70,8 @@ https://<DIRECCION_IP>:5000
 
 # Configuración de Infection Monkey  
 ## Paso 1 - Login por Primera Vez  
-La primera vez que iniciamos **Monkey Island** (el servidor de C&C de Infection Monkey), pedirá que se cree una cuenta (login y password). Tras la creación de la cuenta, el servidor solo será accesible a través de las credenciales que se hayan introducido. Para realizar un reset de la cuenta es necesario seguir estos [pasos](https://staging-infectionmonkey.temp312.kinsta.cloud/docs/faq/#resetenable-the-monkey-island-password) 
+La primera vez que iniciamos **Monkey Island** (el servidor de C&C de Infection Monkey), pedirá que se cree una cuenta (login y password). Tras la creación de la cuenta, el servidor solo será accesible a través de las credenciales que se hayan introducido. 
+Para realizar un reset de la cuenta es necesario seguir estos [pasos](https://staging-infectionmonkey.temp312.kinsta.cloud/docs/faq/#resetenable-the-monkey-island-password) 
 
 ![login](img/login.png)  
 
@@ -85,7 +86,7 @@ En el panel de configuración veremos diferentes pestañas de configuración, pe
 ![config](img/config.png)  
 
 ## Paso 4 - Network Panel (Panel de Red)  
-En esta sección podemos elegir las direcciones IP que queremos excluir, atacar y analizar. Aquí puede controlar múltiples ajustes importantes, como:
+En esta sección se pueden controlar múltiples ajustes importantes, tales como:
 
 - Profundidad de propagación de la red - ¿Cuántos saltos desde la máquina base se propagará Infection Monkey?
 - Escaneo de la red local - ¿Debe Infection Monkey intentar atacar cualquier máquina en su subred?
@@ -94,21 +95,34 @@ En esta sección podemos elegir las direcciones IP que queremos excluir, atacar 
 ![red](img/red.png)  
 
 ## Paso 5 - Guardar siempre los cambios  
-Al final de cada sección habrá el siguiente menú en el que está la opción de guardar.  
+Al final de cada sección habrá el siguiente menú en el que está la opción de guardar. Es **MUY** importante siempre guardar los cambios que se realizen en cada pagina.
 
 ![save](img/save.png)  
 
 ## Paso 6 - Internal Panel (Panel Interno)  
-Aquí podemos añadir los puertos que queremos escanear en las máquinas víctimas.  
+El Internal Panel posee las pestañas para configuraciones mas granulares tanto del servidor Monkey Island, como del Agente Monkey.  
+A continuación explicaremos las mas importantes:  
+
+### Internal Panel/Network  
+Aquí podemos controlar diferentes parametros de la enumeración, como TCP scan interval, TCP scan timeout, Ping scan timeout, ademas de añadir los puertos TCP que queremos escanear en las máquinas víctimas. Tambien es posible indicar los difererentes numeros de puertos HTTP para realizar enumeración web. 
 
 ![ports](img/ports.png)  
+
+### Internal Panel/Monkey  
+Configuramos el número máximo de máquinas que el Agente Monkey puede escanear y tratar de infectar.
+
+### Internal Panel/Island Server
+Lista de C&C/interfaces de red con los que se intentara comunicar el agente Monkey.
+
+### Internal Panel/Exploit
+Configuración de los exploits precargados de Infection Monkey.
 
 ## Paso 7 - Exploit Panel (Panel de Explotación)  
 En esta sección podemos configurar los diccionarios con usuarios y contraseñas para intentar acceder al sistema que estamos atacando o analizando.
 
 ![credentials](img/credentials.png)  
 
-Tambien es esta misma sección nos conseguimos con los "Exploiter", ques on un conjunto de exploits comunes que se pueden utilizar para atacar o analizar los sistemas.
+Tambien es esta misma sección se encuentran los "Exploiter", ques son un conjunto de exploits comunes que se pueden utilizar para atacar o analizar los sistemas. Estos exploits son configurables a traves de la pestaña ubicada en "Internal Panel --> Exploits"
 
 ![exploit](img/exploit.png)  
 
