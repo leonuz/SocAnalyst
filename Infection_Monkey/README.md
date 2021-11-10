@@ -68,10 +68,34 @@ https://<DIRECCION_IP>:5000
 
 ![cert_warning](img/warning.png)  
 
-# Configuración de Ingection Monkey  
-## Login por Primera Vez  
+# Configuración de Infection Monkey  
+## Paso 1 - Login por Primera Vez  
 La primera vez que inicies **Monkey Island** (el servidor de C&C de Infection Monkey), se te pedirá que crees una cuenta y asegures tu isla. Tras la creación de la cuenta, el servidor solo será accesible a través de las credenciales que hayas introducido.  
 
 ![login](img/login.png)  
+
+## Paso 2 - Comienzo de Configuración
+Una vez iniciada la sesión en Monkey Island procederemos a configurarlo para iniciar la recolección.  
+
+![start](img/start.png)  
+
+## Paso 3 - Panel de Configuración  
+En el panel de configuración veremos diferentes pestañas de configuración, pero una de las más importantes es la de los ataques que se van a ejecutar. Pulsando sobre ellas podemos activarlas o desactivarlas.  
+
+![config](img/config.png)  
+
+## Paso 4 - Panel de Red  
+En esta sección podemos elegir las direcciones IP que queremos excluir, atacar y analizar. Sólo tenemos que añadir la dirección IP correspondiente, guardar los cambios y seguir configurando.  
+
+![red](img/red.png)  
+
+## Paso 5 - Guardar siempre los cambios  
+Al final de cada sección habrá el siguiente menú en el que está la opción de guardar.  
+
+![save](img/save.png  
+
+## Paso 6 - 
+
+
 
 
