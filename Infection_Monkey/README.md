@@ -130,14 +130,14 @@ Tambien es esta misma sección se encuentran los "Exploiter", ques son un conjun
 
 # Inicializar Infection Monkey  
 
-Vamos al panel de la izquierda y hacemos click en "Run Mokey" y luego en el panel principal seleccionamos la opción 1 de la isla, "From Island", esperamos unos minutos y el programa comenzará a ejecutarse.  
+Vamos al panel de la izquierda y hacemos click en "Run Mokey" y luego en el panel principal seleccionamos la opción 1, "From Island", esperamos unos minutos y el programa comenzará a ejecutarse.  
 
 ![run](img/run.png)  
 
 # Resultados
 
 >
-> MONTANDO LAB
+> MONTANDO LAB (Windows 7 sin parchear, Debian 11 con servicios ssh con passwd adivinable y ftp con usuario anonymous)
 > 
 
 
