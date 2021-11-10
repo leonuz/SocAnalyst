@@ -3,28 +3,28 @@
 # Emulación de adversarios utilizando Infection Monkey  
 
 # ¿Qué es Infection Monkey?  
-Infection Monkey es una herramienta de pruebas de ciberseguridad, capaz de deambular por las partes más profundas del centro de datos. Hará girar una máquina virtual infectada dentro de partes aleatorias de su centro de datos, para probar posibles fallos de seguridad. Se comporta más como un hacker aleatorio que como un escáner de vulnerabilidades. El Mono intenta moverse por el centro de datos aprovechando diferentes métodos de movimiento lateral típicos de un atacante real que ya ha comprometido un sistema interno. Cuando llega con éxito a otra máquina, significa que hay un fallo de seguridad que debe ser solucionado.  
+**Infection Monkey** es una herramienta de pruebas de ciberseguridad, capaz de adentrarse por las partes más profundas del centro de datos. Se instala en una máquina virtual en alguna parte del centro de datos, y desde alli, intentara probar posibles fallos de seguridad. Se comporta más como un hacker que como un escáner de vulnerabilidades. Infection Monkey intentara recorrer el centro de datos aprovechando diferentes tecnicas de movimiento lateral típicos de un atacante real que ya ha comprometido un sistema interno. Cuando llega con éxito a otra máquina, significa que hay un fallo de seguridad que debe ser solucionado.  
 
-El funcionamiento de alto nivel del Infection Monkey es sencillo. Está diseñado para escanear la red, comprobar si hay puertos abiertos y tomar las huellas digitales de las máquinas utilizando múltiples protocolos de red. Después de detectar las máquinas accesibles, intenta atacar cada una de ellas utilizando una variedad de métodos que incluyen la adivinación inteligente de contraseñas y exploits básicos. Infection Monkey es un trabajo en curso y aún nos queda camino por recorrer para aprovechar al máximo sus ventajas.  
+El funcionamiento de alto nivel de Infection Monkey es sencillo. Está diseñado para enumerar la red, comprobar si hay puertos abiertos y tomar las huellas digitales (fingerprints) de las máquinas, utilizando múltiples protocolos de red. Después de detectar las máquinas accesibles, intentara atacar a cada una de ellas utilizando una variedad de métodos que incluyen el bruteforce de contraseñas hasta exploits básicos. Infection Monkey es un trabajo en curso y aún queda camino por recorrer para aprovechar al máximo sus ventajas.  
 
 # Escenario  
-El objetivo de este laboratorio es aprender a instalar y utilizar la herramienta INFECTION MONKEY para poder realizar ataques a mayor escala, utilizar ataques muy efectivos, crear nuestro propio sistema de ataque, todo esto con el fin de mejorar nuestra infraestructura, equipo de seguridad y prácticas utilizadas para la defensa de nuestra organización.  
+El objetivo de este laboratorio es aprender a instalar, configurar y utilizar la herramienta Infection Monkey. Esta herramienta nos permite realizar ataques a gran escala, utilizando ataques muy efectivos, creando nuestro propio sistema de ataque, todo esto con el fin de mejorar nuestra infraestructura, mejorar el equipo de seguridad y sobre todo mejorar las prácticas utilizadas para la defensa de nuestra organización.  
 
 # Objetivos del laboratorio  
-El objetivo de este laboratorio es demostrar:  
+El objetivo de este laboratorio es:  
 
-1 - Demostrar cómo instalar infection-monkey  
+1 - Aprender a realizar un despliegue exitoso de Infection Monkey  
 
-2 - Demostrar cómo utilizar infection-monkey  
+2 - Aprender a configurar y utilizar Infection Monkey  
 
-3 - Mostrar lo que podemos hacer con infection-monkey  
+3 - Enseñar lo que es posible hacer con Infection Monkey  
 
 # Instalación de Infection Monkey
-Desde la web oficial de Infection Monkey [Infection Monkey Download]( https://www.guardicore.com/infectionmonkey/). Llenamos el formulario para que nos envíen por email el sitio de descarga del programa, poniendo nuestro email, nombre y para el tipo de sistema al que va dirigida la aplicación, si es Windows o Linux.
+Vamos a la web oficial de Infection Monkey para descargar el programa [Download Infection Monkey]( https://www.guardicore.com/infectionmonkey/). Antes de descargar nos pide llenamos un formulario para que nos envíen por email el sitio de descarga del programa.  
+
 ![Link_download](img/link.png)  
 
-
-Una vez recibido el correo electrónico, procederemos a la descarga del programa. Esta descarga es un archivo en formato [AppImage](https://appimage.org/). Una AppImage es un paquete independiente de la distribución y autoejecutable que contiene una aplicación y todo lo que puede necesitar para ejecutarse.
+Una vez recibido el correo electrónico, procederemos a la descarga del programa. Esta descarga es un archivo en formato [AppImage](https://appimage.org/). Una AppImage es un paquete independiente de la distribución y autoejecutable, que contiene una aplicación y todo lo que puede necesitar para ejecutarse.
 
 El paquete AppImage de Infection Monkey debería ejecutarse en la mayoría de las distribuciones modernas de Linux que tienen FUSE instalado, pero las que hemos probado son:
 - BlackArch 2020.12.01
@@ -41,4 +41,22 @@ Mientras de descarga el paquete, procedemos a actualizar nuestro sistema
 sudo apt update
 sudo apt upgrade
 ```
+# Despliegue
+
+1 - Hacer ejecutable el paquete AppImage
+```
+chmod u+x Infection_Monkey_v1.12.0.AppImage
+```
+2 - Inicie Monkey Island ejecutando el paquete Infection Monkey AppImage
+```
+./Infection_Monkey_v1.11.0.AppImage  
+```
+3 - Accede a la interfaz web de Monkey Island. Usando nuestra dirección IP, el protocolo https y el puerto 5000, nos conectaremos a la web de Infection Monkey.  
+```
+https://<DIRECCION_IP>:5000 
+```
+1 - Hacemos click en opciones avanzadas.  
+2 - Aceptamos el riesgo y continuamos.  
+
+![cert_warning](img/warning.png)  
 
