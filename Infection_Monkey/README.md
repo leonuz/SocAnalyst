@@ -132,7 +132,7 @@ Tambien es esta misma sección se encuentran los "Exploiter", ques son un conjun
 
 Vamos al panel de la izquierda y hacemos click en "Run Mokey" y luego en el panel principal seleccionamos la opción 1 de la isla, "From Island", esperamos unos minutos y el programa comenzará a ejecutarse.  
 
-[run](img/run.png)  
+![run](img/run.png)  
 
 # Resultados
 
