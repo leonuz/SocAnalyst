@@ -139,7 +139,7 @@ Vamos al panel de la izquierda y hacemos click en "Run Mokey" y luego en el pane
 
 Una vez que Inicializamos el ataque debemos esperar un tiempo para que se complete, este tiempo dependera de las tareas que hallamos preconfigurado.  
 
-![run-monkey](img/run-monkey-png)  
+![run-monkey](img/run-monkey.png)  
 
 Cuando Infection Monkey termina el trabajo, nos aparecera el panel de la izquierda de la sigueinte manera:  
 
@@ -169,7 +169,7 @@ En esta sección podemos ver un detalle de lo que está haciendo Infection Monke
 Con esta guia se pretende dar a conocer los beneficios de **Infection Monkey** como una herramienta muy poderosa que nos permitira poner a prueba la seguridad en los centros de datos.  
 
 # Mas Información
-[Getting Started whit Infection Monkey](https://www.guardicore.com/infectionmonkey/wt/)
+[Getting Started whit Infection Monkey](https://www.guardicore.com/infectionmonkey/wt/)  
 [Docomuentación Oficial de Infection Monkey](https://staging-infectionmonkey.temp312.kinsta.cloud/docs/setup/)  
 
 
