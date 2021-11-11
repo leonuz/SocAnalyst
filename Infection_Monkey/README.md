@@ -1,3 +1,13 @@
+---
+title: "Infection Monkey"
+author:
+  - name: "Leonardo Uzcátegui"
+    url: https://github.com/leonuz
+Revisión:
+  - name: "Eduardo Snape"
+    url: https://comunidaddojo.org
+Fecha: 11/11/2021
+---
 ![InfectionMonkey](img/im1.png)
 
 # Emulación de Adversarios utilizando Infection Monkey
@@ -139,46 +149,47 @@ Vamos al panel de la izquierda y hacemos click en "Run Mokey" y luego en el pane
 
 Una vez que Inicializamos el ataque debemos esperar un tiempo para que se complete, este tiempo dependera de las tareas que hallamos preconfigurado.  
 
+
 ![run-monkey](img/run-monkey.png)  
+
 
 Cuando Infection Monkey termina el trabajo, nos aparecera el panel de la izquierda de la sigueinte manera:  
 
+
 ![end](img/end.png)
+
 
 ## Paso 1 - Infection Map Panel (Panel del Mapa de Infecciones)  
 Aquí veremos un mapa con las máquinas que ha descubierto mediante las técnicas previamente configuradas y nos dará información sobre lo que ha hecho en cada una de ellas pulsando sobre la máquina.  
 
+
 ![map](img/infection_map.png)  
+
 
 ## Paso 2 - Security Reports Panel (Panel de Reportes de Seguridad)  
 En esta sección veremos un informe de las máquinas descubiertas, cuales fueron vulneradas y las vulnerabilidades que encontradas.  
 
+
 ![report](img/report.png)  
 
+
 ## Paso 3 - ATT & CK report tab (Reporte ATT&CK)
-Este reporte se encuentra en na pestaña dentro del Security Reports Panel. En esta sección podemos ver qué ataques tuvieron éxito y cuáles no.  
+Este reporte se encuentra en la pestaña dentro del Security Reports Panel. En esta sección podemos ver qué ataques tuvieron éxito y cuáles no.  
+
 
 ![mitre](img/mitre.png)  
+
 
 ## Paso 4 - Logs  
 En esta sección podemos ver un detalle de lo que está haciendo Infection Monkey, a qué hora, en qué máquina, el tipo de estrategia y los detalles de lo que se hizo.  
 
+
 ![logs](img/logs.png)  
+
 
 # Conclusion
 Con esta guia se pretende dar a conocer los beneficios de **Infection Monkey** como una herramienta muy poderosa que nos permitira poner a prueba la seguridad en los centros de datos.  
 
 # Mas Información
-[Getting Started whit Infection Monkey](https://www.guardicore.com/infectionmonkey/wt/)  
-[Docomuentación Oficial de Infection Monkey](https://staging-infectionmonkey.temp312.kinsta.cloud/docs/setup/)  
-
-
-
-
-
-
-
-
-
-
-
+- [Getting Started whit Infection Monkey](https://www.guardicore.com/infectionmonkey/wt/)  
+- [Infection Monkey Official Documentation](https://staging-infectionmonkey.temp312.kinsta.cloud/docs/setup/)  
