@@ -1,14 +1,13 @@
 ![InfectionMonkey](img/im1.png)
 
-# Emulación de Adversarios
-# Infection Monkey   
+# Emulación de Adversarios utilizando Infection Monkey
 
 # ¿Qué es Infection Monkey?  
-**Infection Monkey** es una herramienta de pruebas de ciberseguridad, es capaz de adentrarse en el centro de datos en busca de vulnerabilidades y explotarlas. Se instala en una máquina virtual en alguna parte del centro de datos, y desde alli, intentara probar posibles fallos de seguridad. Se comporta más como un hacker que como un escáner de vulnerabilidades. Infection Monkey intentara recorrer el centro de datos aprovechando diferentes tecnicas de movimiento lateral típicos de un atacante real que ya ha comprometido un sistema interno. Cuando logra vulnerar con éxito a una máquina, significará que hay un fallo de seguridad que debe ser solucionado.  
+**Infection Monkey** es una herramienta de pruebas de ciberseguridad, capaz de infiltarse en un centro de datos en busca de vulnerabilidades y explotarlas. Se puede instalar en una máquina virtual en cualquier parte dentro del centro de datos, y desde alli, Infection Monkey intentará encontar posibles fallos de seguridad. Su comportamiento es más parecido a como un ciberdelincuente opera, que como un escáner de vulnerabilidades. Infection Monkey intentara recorrer el centro de datos aprovechando diferentes tecnicas de movimiento lateral típicos de un atacante real que ya ha comprometido un sistema interno. Cuando logra vulnerar con éxito a un sistema, esto significará que hay un fallo de seguridad que debera ser solucionado por el equipo correspondiente.  
 
-El funcionamiento de Infection Monkey es sencillo. Está diseñado para enumerar la red, comprobar si hay puertos abiertos y tomar las huellas digitales (fingerprint) de las máquinas, utilizando múltiples protocolos de red. Después de detectar las máquinas accesibles, intentara atacar a cada una de ellas utilizando una variedad de métodos que incluyen, entre otros, el bruteforce de contraseñas y la ejecución de exploits conocidos. 
+El funcionamiento de Infection Monkey es sencillo. Está diseñado para enumerar la red, comprobar si hay puertos abiertos y tomar las huellas digitales (fingerprint) de las máquinas, utilizando múltiples protocolos de red. Después de detectar las máquinas vulnerables, intentará atacar a cada una de ellas, utilizando una variedad de métodos que incluyen, entre otros, el bruteforce de contraseñas y la ejecución de exploits conocidos. 
 
-Infection Monkey es un trabajo en curso y aún queda camino por recorrer para aprovechar al máximo sus ventajas.  
+>Infection Monkey es un trabajo en curso y aún queda camino por recorrer para aprovechar al máximo sus ventajas.  
 
 # Componentes de Infection Monkey
 Infection Monkey posee dos componentes principales:  
@@ -16,10 +15,10 @@ Infection Monkey posee dos componentes principales:
 - Monkey Island: un servidor web de [C&C](https://www.trendmicro.com/vinfo/us/security/definition/command-and-control-server) que proporciona una interfaz gráfica para los usuarios e interactúa con los Agentes Monkey.  
 - Agente Monkey: un programa binario seguro, similar a un gusano, que explora, propaga y simula técnicas de ataque en **la red local**.  
 
-El usuario puede ejecutar el Agente Monkey desde el "Servidor Monkey Island" o distribuir manualmente los binarios del Agente Monkey en la red. Basándose en los parámetros de configuración, los Agentes Monkey escanean, propagan y simulan el comportamiento de un atacante en la red local. Toda la información recopilada sobre la red se agrega en el Servidor Monkey Island y se muestra una vez que todos los Agentes Monkey han terminado.
+El operador puede ejecutar el Agente Monkey desde el "Servidor Monkey Island" o distribuir manualmente los binarios del Agente Monkey en la red. Basándose en los parámetros de configuración, los Agentes Monkey escanean, propagan y simulan el comportamiento de un atacante en la red local. Toda la información recopilada sobre la red se agrega en el Servidor Monkey Island y se muestra una vez que todos los Agentes Monkey han terminado.
 
 # Escenario  
-El objetivo de este laboratorio es aprender a instalar, configurar y utilizar la herramienta Infection Monkey. Esta herramienta nos permite realizar ataques a gran escala, utilizando ataques muy efectivos, creando nuestro propio sistema de ataque, todo esto con el fin de mejorar nuestra infraestructura, mejorar el equipo de seguridad y sobre todo mejorar las prácticas utilizadas para la defensa de nuestra organización.  
+El objetivo de este laboratorio es aprender a instalar, configurar y utilizar la herramienta Infection Monkey. Esta herramienta nos permitira realizar ataques a gran escala, empleando ataques conocidos muy efectivos, creando nuestro propio sistema de ataque, todo esto con el fin de mejorar nuestra infraestructura, mejorar el equipo de seguridad y sobre todo mejorar las prácticas utilizadas para la defensa de nuestra organización.  
 
 # Objetivos del laboratorio  
 El objetivo de este laboratorio es:  
@@ -34,9 +33,10 @@ Vamos a la web oficial de Infection Monkey para solicitar la descargar del progr
 
 ![Link_download](img/link1.png)  
 
-Una vez recibido el correo electrónico, procederemos a la descarga del programa. Esta descarga es un archivo en formato [AppImage](https://appimage.org/). Una AppImage es un paquete independiente de la distribución y autoejecutable, que contiene una aplicación y todo lo que puede necesitar para ejecutarse.
+Una vez recibido el correo electrónico, procederemos a la descarga del programa. Esta descarga es un archivo en formato [AppImage](https://appimage.org/).  
+>Una AppImage es un paquete independiente de la distribución y autoejecutable, que contiene una aplicación y todo lo que puede necesitar para ejecutarse.
 
-El paquete AppImage de Infection Monkey debería ejecutarse en la mayoría de las distribuciones modernas de Linux que tienen FUSE instalado, pero las que hemos probado son:
+El paquete AppImage de Infection Monkey puede ejecutarse en la mayoría de las distribuciones modernas de Linux que tienen FUSE instalado, pero esta certificada por los desarrolladeres, en las siguientes distribuciones y versiones:
 - BlackArch 2020.12.01
 - Kali 2021.2
 - Parrot 4.11
@@ -51,7 +51,8 @@ Mientras de descarga el paquete, procedemos a actualizar nuestro sistema
 sudo apt update
 sudo apt upgrade
 ```
-# Despliegue de Infection Monkey
+# Despliegue de Infection Monkey  
+Una vez descargado el programa, nos dirigimos al directorio en donde descargamos el programa y una vez alli, ejecutamos lo siguiente:
 
 1 - Hacer ejecutable el paquete AppImage
 ```
@@ -73,7 +74,7 @@ https://<DIRECCION_IP>:5000
 # Configuración de Infection Monkey  
 ## Paso 1 - Login por Primera Vez  
 La primera vez que iniciamos **Monkey Island** (el servidor de C&C de Infection Monkey), pedirá que se cree una cuenta (login y password). Tras la creación de la cuenta, el servidor solo será accesible a través de las credenciales que se hayan introducido. 
-Para realizar un reset de la cuenta es necesario seguir estos [pasos](https://staging-infectionmonkey.temp312.kinsta.cloud/docs/faq/#resetenable-the-monkey-island-password) 
+>Para realizar un reset de la cuenta es necesario seguir estos [pasos](https://staging-infectionmonkey.temp312.kinsta.cloud/docs/faq/#resetenable-the-monkey-island-password) 
 
 ![login](img/login.png)  
 
@@ -136,9 +137,48 @@ Vamos al panel de la izquierda y hacemos click en "Run Mokey" y luego en el pane
 
 # Resultados
 
->
-> MONTANDO LAB (Windows 7 sin parchear, Debian 11 con servicios ssh con passwd adivinable y ftp con usuario anonymous)
-> 
+Una vez que Inicializamos el ataque debemos esperar un tiempo para que se complete, este tiempo dependera de las tareas que hallamos preconfigurado.  
+
+![run-monkey](img/run-monkey-png)  
+
+Cuando Infection Monkey termina el trabajo, nos aparecera el panel de la izquierda de la sigueinte manera:  
+
+![end](img/end.png)
+
+## Paso 1 - Infection Map Panel (Panel del Mapa de Infecciones)  
+Aquí veremos un mapa con las máquinas que ha descubierto mediante las técnicas previamente configuradas y nos dará información sobre lo que ha hecho en cada una de ellas pulsando sobre la máquina.  
+
+![map](img/infection_map.png)  
+
+## Paso 2 - Security Reports Panel (Panel de Reportes de Seguridad)  
+En esta sección veremos un informe de las máquinas descubiertas, cuales fueron vulneradas y las vulnerabilidades que encontradas.  
+
+![report](img/report.png)  
+
+## Paso 3 - ATT & CK report tab (Reporte ATT&CK)
+Este reporte se encuentra en na pestaña dentro del Security Reports Panel. En esta sección podemos ver qué ataques tuvieron éxito y cuáles no.  
+
+![mitre](img/mitre.png)  
+
+## Paso 4 - Logs  
+En esta sección podemos ver un detalle de lo que está haciendo Infection Monkey, a qué hora, en qué máquina, el tipo de estrategia y los detalles de lo que se hizo.  
+
+![logs](img/logs.png)  
+
+# Conclusion
+Con esta guia se pretende dar a conocer los beneficios de **Infection Monkey** como una herramienta muy poderosa que nos permitira poner a prueba la seguridad en los centros de datos.  
+
+# Mas Información
+[Getting Started whit Infection Monkey](https://www.guardicore.com/infectionmonkey/wt/)
+[Docomuentación Oficial de Infection Monkey](https://staging-infectionmonkey.temp312.kinsta.cloud/docs/setup/)  
+
+
+
+
+
+
+
+
 
 
 
