@@ -2,10 +2,7 @@
 title: "Infection Monkey"
 author:
   - name: "Leonardo Uzcátegui"
-    url: https://github.com/leonuz
-Revisión:
-  - name: "Eduardo Snape"
-    url: https://comunidaddojo.org
+    url: https://leonuz.github.io
 Fecha: 11/11/2021
 ---
 ![InfectionMonkey](img/im1.png)
