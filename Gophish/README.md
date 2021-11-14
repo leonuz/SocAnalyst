@@ -202,11 +202,22 @@ Nos pedira introducir las credenciales que conseguimos previamente en la consola
 ![change](img/change_pwd.png)  
 
 
-Una vez cambiada la contraseña, estaremos dentro de Gophish.  
+Una vez cambiada la contraseña, estaremos dentro del Dashboard de Gophish.  
 
 
 ![dashboard](img/dashboard.png)  
 
+
+
+# Configuración
+>
+> MONTANDO LAB
+>
+
+
+# Conlcusión
+
+# Mas Información
 
 
 
