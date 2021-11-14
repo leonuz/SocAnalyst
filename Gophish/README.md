@@ -196,10 +196,17 @@ Nos pedira introducir las credenciales que conseguimos previamente en la consola
 ![admin](img/admin.png)
 
 
-Despues de entrar en el sistema inmediatamente nos pedira realizar un cambio de contraseña.  
+ Inmediatamente despues de entrar en el sistema nos pedira realizar un cambio de contraseña.  
 
 
 ![change](img/change_pwd.png)  
+
+
+Una vez cambiada la contraseña, estaremos dentro de Gophish.  
+
+
+![dashboard](img/dashboard.png)  
+
 
 
 
