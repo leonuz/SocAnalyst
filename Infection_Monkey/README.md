@@ -55,19 +55,19 @@ El paquete AppImage de Infection Monkey puede ejecutarse en la mayoría de las d
 
 Mientras de descarga el paquete, procedemos a actualizar nuestro sistema
 ```
-sudo apt update
-sudo apt upgrade
+# sudo apt update
+# sudo apt upgrade
 ```
 # Despliegue de Infection Monkey  
 Una vez descargado el programa, nos dirigimos al directorio en donde descargamos el programa y una vez alli, ejecutamos lo siguiente:
 
 1 - Hacer ejecutable el paquete AppImage
 ```
-chmod u+x Infection_Monkey_v1.12.0.AppImage
+# chmod u+x Infection_Monkey_v1.12.0.AppImage
 ```
 2 - Inicie Monkey Island ejecutando el paquete Infection Monkey AppImage
 ```
-./Infection_Monkey_v1.11.0.AppImage  
+# ./Infection_Monkey_v1.11.0.AppImage  
 ```
 3 - Accede a la interfaz web de Monkey Island. Usando nuestra dirección IP, el protocolo https y el puerto 5000, nos conectaremos a la web de Infection Monkey.  
 ```
