@@ -189,11 +189,15 @@ https://<DIRECCION_IP>:3333
 
 ![cert_warning](img/warning.png)  
 
-Nos pedira introducir las credenciales que se encuentran en la consola  
+
+Nos pedira introducir las credenciales que conseguimos previamente en la consola (Paso 2 de Instalación)  
+
 
 ![admin](img/admin.png)
 
+
 Despues de entrar en el sistema inmediatamente nos pedira realizar un cambio de contraseña.  
+
 
 ![change](img/change_pwd.png)  
 
