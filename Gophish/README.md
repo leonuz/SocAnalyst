@@ -210,14 +210,21 @@ Una vez cambiada la contraseña, estaremos dentro del Dashboard de Gophish.
 
 
 # Configuración
+
 >
 > MONTANDO LAB
 >
 
 
-# Conlcusión
+# Conclusión  
+>.
+>.
+>.
 
-# Mas Información
+# Mas Información 
+
+-[Gophish User Guide](https://docs.getgophish.com/user-guide/)
+-[Gophish API Documentation](https://docs.getgophish.com/api-documentation/)
 
 
 
